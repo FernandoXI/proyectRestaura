@@ -2,6 +2,7 @@
 package misClases;
 
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 public class Plato {
     private String descripcion;
@@ -29,7 +30,8 @@ public class Plato {
     
     public void generarCantidad(){
         Random randito =new Random();
-         cantidad=randito.nextInt(6)+1;
+        cantidad=randito.nextInt(6)+1;
+        JOptionPane.showMessageDialog(null,cantidad);
     }
     
     public void asignarPrecio(){
@@ -54,6 +56,11 @@ public class Plato {
         }else{
             precioU=45.0f;
         }
+    }
+    public String toString(){
+        return "\nDescripcion de Plato: "+descripcion+
+                "\nCantidad de Plato: "+cantidad+
+                "\nPrecio Unitario: "+precioU;
     }
     
     

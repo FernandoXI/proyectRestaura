@@ -7,12 +7,17 @@ public class Pedido {
     private static final int TAM = 4;
     private Plato[] arPlatos;
     private float monto;
+    private int numeroP;
 
     public Pedido() {
         arPlatos = new Plato[TAM];
         monto = 0.0f;
+        numeroP = 0;
     }
 
+    public int getNumeroP() {
+        return numeroP;
+    }
     public static int getTAM() {
         return TAM;
     }
@@ -25,18 +30,30 @@ public class Pedido {
     }
    
     public void agregarPlato(Plato refP){
-        
-        if(refP.getCantidad() < TAM){
-            arPlatos[0] = refP;
-            npl ++;
-        }else{
-            JOptionPane.showMessageDialog(null, "El pedido está lleno");
+     
+        if(numeroP <= TAM){
+            arPlatos[numeroP] = refP;
+            numeroP ++;
+            }else{
+                JOptionPane.showMessageDialog(null, "Faltan platos,debe ser 4 platos");
+            }      
+            
+    }
+    public void calcularMontoTotalPagar(){
+        for (int i = 0; i <numeroP ; i++) {
+            monto+= arPlatos[i].getPrecioU()*arPlatos[i].getCantidad();
         }
     }
-    public void calcularMonto(){
-        for (int i = 0; i < npl; i++) {
+    public String toString(){
+        String cad ="";
+        for (int i = 0; i < TAM; i++) {
+            cad += arPlatos[i].toString() +"\n";
             
         }
+         
+               
+         
+        return cad + "\nMonto por Pedido: "+monto;
     }
 
 }

@@ -1,25 +1,22 @@
 package miClaseListaE;
 
 import java.util.Random;
+import misClases.Mozo;
 
-public class ListaLEG <E>{
-    private NodoLEG<E> primero;//Dirección de memoria del primer NODO de la lista
-    private int talla;//la cantidad de nodos que tiene la lista
+public class ListaLEG <E extends Mozo>{
+    private NodoLEG<E> primero;
+    private int talla;
 
     public ListaLEG() {
         this.primero=null;
         this.talla=0;//no hay nodos, esta vacio la lista
     }
-
     public NodoLEG<E> getPrimero() {
         return primero;
     }
     public int getTalla() {
         return talla;
     }
-    
-    //reglas de negocio
-    //ojo ya tienen implicito la actualizacion de talla cuando se elimina o inserta
     public void insertarAlInicio(E x){        
         NodoLEG<E> nuevo=new NodoLEG<E>(x);//construyendo una direccion de memoria
         //se inicializa todo,xq estamosllamando al contructor
@@ -27,7 +24,6 @@ public class ListaLEG <E>{
         primero=nuevo;
         talla++;        
     }
-    
     public void insertarAlFinal(E x){
         NodoLEG<E> nuevo=new NodoLEG<E>(x);
         
@@ -41,8 +37,7 @@ public class ListaLEG <E>{
             ptr.setSiguiente(nuevo); //direccion del ultimo nodo          
         }
         talla++; //se acaba de insertar un nuevo elemento       
-    }
-    
+    }   
     public void eliminarAlInicio(){
         //precondición: Lista no vacia
         
@@ -53,8 +48,7 @@ public class ListaLEG <E>{
             primero=primero.getSiguiente();
         }
         talla--;        
-    }
-    
+    }    
     public void eliminarAlFinal(){
         //precondición: Lista no vacia
         
@@ -69,8 +63,7 @@ public class ListaLEG <E>{
             r.setSiguiente(null);           
         }
         talla--;       
-    }
-    
+    }   
     public String verLista(){
         String cad="";
         
@@ -80,10 +73,7 @@ public class ListaLEG <E>{
             ptr=ptr.getSiguiente();
         }       
         return cad;        
-    }
-    
-    //ejercicio
-    // método que elimine un nodo elegido aleatoriamente
+    }    
     public void eliminarDatoAleatorio(){
         Random randito=new Random();
         
@@ -92,10 +82,7 @@ public class ListaLEG <E>{
         //falta terminar
         
         
-    }
-    
-    
-    
+    } 
     
     
 }

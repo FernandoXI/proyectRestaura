@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 public class ArrayCola <E> implements Cola<E>{//nombre de la estructura de dato ,va almacenar objetos de 
                                                 //tipo generico
-    private static final int TAM=50;
+    private static final int TAM=6;
     
     private E[]arC; //arreglo cola
     private int frente,finalc;//almacena la posicion
