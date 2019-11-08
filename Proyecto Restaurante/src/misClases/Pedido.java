@@ -14,7 +14,6 @@ public class Pedido {
         monto = 0.0f;
         numeroP = 0;
     }
-
     public int getNumeroP() {
         return numeroP;
     }
@@ -24,7 +23,6 @@ public class Pedido {
     public Plato[] getArPlatos() {
         return arPlatos;
     }
- 
     public float getMonto() {
         return monto;
     }
