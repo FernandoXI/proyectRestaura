@@ -2,6 +2,7 @@ package miClaseListaE;
 
 import java.util.Random;
 import javax.swing.JOptionPane;
+import miClaseCola.ArrayCola;
 import misClases.Mozo;
 import misClases.Pedido;
 
@@ -131,5 +132,33 @@ public class ListaLEG<E extends Mozo> {
             ant.getDato().encolarPedido(refP);
         }
     }
+    
+    public String PedidoMozoAntiguo(){
+        String cad ="";
+        NodoLEG<E> ptr = primero;
+        int mayor = 0;
+        while (ptr != null) {            
+            if(ptr.getDato().getAñosExperiencia()>mayor){
+                mayor = ptr.getDato().getAñosExperiencia();                         
+            }
+            ptr = ptr.getSiguiente();
+        }
+        while (ptr != null ) {            
+            if(ptr.getDato().getAñosExperiencia()==mayor){
+                cad += "\n Datos del Mozo: \n"+ptr.getDato().toString();
+                float pago =0.0f;
+                while (ptr.getDato().getListaPedido().colaVacia()==false) {                    
+                    Pedido p = ptr.getDato().getListaPedido().desencolar();
+                    pago += p.getMonto();
+                    cad += "\nPedido: "+p.toString()+
+                            "\nMonto de Pago: "+pago; 
+                }
+            }
+            ptr = ptr.getSiguiente();
+        }
+        
+        return cad;
+    }
+    
 
 }
